@@ -11,7 +11,7 @@ import SwiftUI
 struct Betting_calculatorApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LoadingView()
         }
     }
 }
