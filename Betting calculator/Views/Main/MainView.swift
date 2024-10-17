@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MainView: View {
+    @StateObject var vmMain = MainViewModel()
     var body: some View {
         ZStack {
             Color.main.ignoresSafeArea()
@@ -26,10 +27,27 @@ struct MainView: View {
                 
                 //MARK: - Choose view button
                 HStack{
-                    CustomButtonView(title: "System")
-                    CustomButtonView(title: "Express", color: .white.opacity(0.05))
+                    Button {
+                        vmMain.mainViewSwitch = false
+                    } label: {
+                        CustomButtonView(title: "System", color: vmMain.mainViewSwitch ? .white.opacity(0.05) : .orangeApp)
+                    }
+
+                    Button {
+                        vmMain.mainViewSwitch = true
+                    } label: {
+                        CustomButtonView(title: "Express", color: !vmMain.mainViewSwitch ? .white.opacity(0.05) : .orangeApp)
+                    }
+
+                    
                 }
                 Spacer()
+                if vmMain.mainViewSwitch {
+                    ExpressView(vm: vmMain)
+                }else{
+                    
+                }
+                
             }
             .padding()
         }

@@ -82,7 +82,7 @@
 				};
 			};
 			buildConfigurationList = 301EDF7F2CBD9CCF002CB7DD /* Build configuration list for PBXProject "Betting calculator" */;
-			compatibilityVersion = "Xcode 15.0";
+			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
