@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class MainViewModel: ObservableObject {
+final class ExpressViewModel: ObservableObject {
     @Published var mainViewSwitch: Bool = false
     
     @Published var simpleBet = ""

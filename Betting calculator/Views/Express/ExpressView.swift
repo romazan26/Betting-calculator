@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ExpressView: View {
-    @StateObject var vm: MainViewModel
+    @StateObject var vm: ExpressViewModel
     @FocusState var keyboardFocus: Bool
     var body: some View {
         ZStack {
@@ -85,5 +85,5 @@ struct ExpressView: View {
 }
 
 #Preview {
-    ExpressView(vm: MainViewModel())
+    ExpressView(vm: ExpressViewModel())
 }

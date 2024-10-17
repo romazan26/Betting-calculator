@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct MainView: View {
-    @StateObject var vmMain = MainViewModel()
+    @StateObject var vmMain = ExpressViewModel()
+    @StateObject var vmSystem = SystemViewModel()
     var body: some View {
         ZStack {
             Color.main.ignoresSafeArea()
@@ -45,7 +46,7 @@ struct MainView: View {
                 if vmMain.mainViewSwitch {
                     ExpressView(vm: vmMain)
                 }else{
-                    
+                    SystemView(vm: vmSystem)
                 }
                 
             }
