@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="23231" systemVersion="24A348" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="EventEntity" representedClassName="EventEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="odds" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="result" optional="YES" attributeType="String"/>
+        <relationship name="system" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="System" inverseName="eventEntry" inverseEntity="System"/>
+    </entity>
+    <entity name="Express" representedClassName="Express" syncable="YES" codeGenerationType="class">
+        <attribute name="coefficientt" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="winning" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="Note" representedClassName="Note" syncable="YES" codeGenerationType="class">
+        <attribute name="descriptNote" optional="YES" attributeType="String"/>
+        <attribute name="titleNote" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="System" representedClassName="System" syncable="YES" codeGenerationType="class">
+        <attribute name="percentageWin" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="playedExpress" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="totalWin" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="unplayedExpress" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="eventEntry" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EventEntity" inverseName="system" inverseEntity="EventEntity"/>
+    </entity>
+</model>

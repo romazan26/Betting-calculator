@@ -144,8 +144,9 @@ struct SystemView: View {
                 Button {
                     vm.calculateWin()
                 } label: {
-                    CustomButtonView(title: "Calculate")
+                    CustomButtonView(title: "Calculate", color: vm.stake == "" ? .gray : .orangeApp)
                 }
+                .disabled(vm.stake == "" ? true : false)
             }
         }
         .onTapGesture {
