@@ -33,7 +33,7 @@ struct MainView: View {
                         
                         //MARK: - Notes view button
                         NavigationLink {
-                            NoteView(vm: vmNotes)
+                            NotesView(vm: vmNotes)
                         } label: {
                             ButtomMainTopBarView(image: "text.document.fill", color: .orangeOpacity)
                         }
