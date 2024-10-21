@@ -14,8 +14,11 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             ZStack {
+                
+                //MARK: - Back ground
                 Color.main.ignoresSafeArea()
                 VStack {
+                    
                     //MARK: - Top tool bar
                     HStack{
                         IncomeView(money: 1)
@@ -26,9 +29,15 @@ struct MainView: View {
                             } label: {
                                 ButtomMainTopBarView()
                             }
+                            
+                            //MARK: - Settings button
+                            Button {
+                                vmMain.isPresentSettings = true
+                            } label: {
+                                ButtomMainTopBarView(image: "gearshape.fill")
+                            }
 
-                           
-                            ButtomMainTopBarView(image: "gearshape.fill")
+                            
                         }
                         
                         //MARK: - Notes view button
@@ -58,6 +67,8 @@ struct MainView: View {
                         
                     }
                     Spacer()
+                    
+                    //MARK: - Main view
                     if vmMain.mainViewSwitch {
                         ExpressView(vm: vmMain)
                     }else{
@@ -66,7 +77,13 @@ struct MainView: View {
                     
                 }
                 .padding()
-            }
+                
+                //MARK: - Settings view
+                if vmMain.isPresentSettings {
+                    SettingsView(isPresent: $vmMain.isPresentSettings)
+                        .ignoresSafeArea()
+                }
+            }.animation(.easeInOut, value: vmMain.isPresentSettings)
         }
     }
 }

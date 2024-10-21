@@ -10,6 +10,7 @@ import CoreData
 
 final class ExpressViewModel: ObservableObject {
     @Published var mainViewSwitch: Bool = false
+    @Published var isPresentSettings: Bool = false
     
     //MARK: - CoreData Property
     @Published var express: [Express] = []
