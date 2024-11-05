@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct LoadingView: View {
-    @State private var timeLoading: Int = 0
-    @State private var isPresent: Bool = false
-    @AppStorage("isFirstLaunch") private var isFirstLaunch: Bool?
+    @StateObject var vm = LoadingViewModel()
     var body: some View {
         ZStack {
             Color.main.ignoresSafeArea()
@@ -21,24 +19,16 @@ struct LoadingView: View {
                 .colorScheme(.dark)
                 .padding(.top, 350)
         }
-        .fullScreenCover(isPresented: $isPresent, content: {
-            if isFirstLaunch ?? true {
+        .fullScreenCover(isPresented: $vm.isPresent, content: {
+            if vm.isFirstLaunch ?? true {
                 IntroView()
             }else{
                 MainView()
             }
         })
         .onAppear(perform: {
-            Timer.scheduledTimer(withTimeInterval: 0.02, repeats: true) { timer in
-                if timeLoading < 100{
-                    timeLoading += 1
-                }else {
-                    timer.invalidate()
-                    isPresent = true
-                }
-            }
+            vm.starttimer()
         })
-
     }
 }
 
